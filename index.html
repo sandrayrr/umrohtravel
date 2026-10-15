@@ -82,7 +82,7 @@
             src="assets/logo.png" />
           <div class="flex flex-col"><span
               class="font-headline-sm text-headline-sm tracking-wide text-primary leading-tight font-serif">MOZA</span><span
-              class="font-label-sm text-label-sm uppercase tracking-widest text-secondary -mt-1">Tour and Travel</span>
+              class="font-label-sm text-label-sm uppercase tracking-widest text-secondary -mt-1">Travel and Umroh</span>
           </div>
         </div>
       </div>
@@ -1597,6 +1597,46 @@
           </form>
         </div>
       </section>
+
+<!-- ========== INTEGRASI WHATSAPP — HANYA SCRIPT TAMBAHAN ========== -->
+<script>
+  function handleInquirySubmit(e) {
+    e.preventDefault();
+
+    // Ambil nilai dari setiap field form
+    const nama          = document.getElementById('nama').value.trim();
+    const whatsapp      = document.getElementById('whatsapp').value.trim();
+    const paket         = document.getElementById('paket-pilihan').value;
+    const jumlahJamaah  = document.getElementById('jumlah-jamaah').value;
+    const rencanaBulan  = document.getElementById('rencana-bulan').value;
+    const pesan         = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (tanpa +, spasi, atau strip)
+    const nomorWASafar = '6285624925121';
+
+    // Susun teks pesan yang akan dikirim ke WhatsApp
+    const teksWA = `Assalamu'alaikum Warahmatullahi Wabarakatuh.%0A%0A` +
+      `*FORMULIR KONSULTASI SAFAR*%0A` +
+      `──────────────────%0A` +
+      `📋 *Nama:* ${nama}%0A` +
+      `📱 *No. WhatsApp:* ${whatsapp}%0A` +
+      `🕋 *Paket:* ${paket}%0A` +
+      `👥 *Jumlah Jamaah:* ${jumlahJamaah} orang%0A` +
+      `📅 *Rencana Bulan:* ${rencanaBulan}%0A` +
+      `📝 *Catatan:* ${pesan || '—'}%0A` +
+      `──────────────────%0A%0A` +
+      `Mohon informasi lanjutan terkait ketersediaan dan rincian jadwal. Jazakallahu khairan.`;
+
+    // Buka WhatsApp di tab baru
+    window.open(`https://wa.me/${nomorWASafar}?text=${teksWA}`, '_blank');
+
+    // Tampilkan banner sukses yang sudah ada di HTML
+    const banner = document.getElementById('form-success-banner');
+    if (banner) {
+      banner.classList.remove('hidden');
+    }
+  }
+</script>
       <!-- ==========================================
        SECTION 14: #transparansi - POLICIES & LEGAL
        ========================================== -->
