@@ -1487,7 +1487,7 @@
       <!-- ==========================================
        SECTION 13: #kontak - CONSULTATION INQUIRY
        ========================================== -->
-      <section class="w-full px-margin-mobile py-space-xl bg-surface" id="kontak">
+     <section class="w-full px-margin-mobile py-space-xl bg-surface" id="kontak">
         <div class="max-w-xl mx-auto flex flex-col gap-6">
           <div class="flex flex-col gap-2">
             <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-semibold">Konsultasi
@@ -1560,7 +1560,7 @@
               <label class="font-label-sm text-label-sm uppercase font-semibold text-primary"
                 for="rencana-bulan">Rencana Bulan Keberangkatan</label>
               <select
-                class="h-11 px-3 rounded-lg bg-surface-container-lowest border-0 ring-0 focus:outline-none focus:bg-surface text-body-sm"
+1="h-11 px-3 rounded-lg bg-surface-container-lowest border-0 ring-0 focus:outline-none focus:bg-surface text-body-sm"
                 id="rencana-bulan">
                 <option value="Oktober 2025">Oktober 2025 (Musim Sejuk Awal)</option>
                 <option value="November 2025">November 2025</option>
@@ -1598,12 +1598,12 @@
         </div>
       </section>
 
-<!-- ========== INTEGRASI WHATSAPP — HANYA SCRIPT TAMBAHAN ========== -->
+4>
+
 <script>
   function handleInquirySubmit(e) {
     e.preventDefault();
 
-    // Ambil nilai dari setiap field form
     const nama          = document.getElementById('nama').value.trim();
     const whatsapp      = document.getElementById('whatsapp').value.trim();
     const paket         = document.getElementById('paket-pilihan').value;
@@ -1611,26 +1611,23 @@
     const rencanaBulan  = document.getElementById('rencana-bulan').value;
     const pesan         = document.getElementById('pesan').value.trim();
 
-    // Nomor WA tujuan (tanpa +, spasi, atau strip)
+    /* 838-3959-3431 → format WA: 6283839593431 */
     const nomorWASafar = '6283839593431';
 
-    // Susun teks pesan yang akan dikirim ke WhatsApp
     const teksWA = `Assalamu'alaikum Warahmatullahi Wabarakatuh.%0A%0A` +
       `*FORMULIR KONSULTASI SAFAR*%0A` +
       `──────────────────%0A` +
-      `📋 *Nama:* ${nama}%0A` +
+(4)   `📋 *Nama:* ${nama}%0A` +
       `📱 *No. WhatsApp:* ${whatsapp}%0A` +
       `🕋 *Paket:* ${paket}%0A` +
-      `👥 *Jumlah Jamaah:* ${jumlahJamaah} orang%0A` +
+      `👥 *Jumlah Jamaah:* ${jumlahJamaah} orang%6A` +
       `📅 *Rencana Bulan:* ${rencanaBulan}%0A` +
       `📝 *Catatan:* ${pesan || '—'}%0A` +
       `──────────────────%0A%0A` +
       `Mohon informasi lanjutan terkait ketersediaan dan rincian jadwal. Jazakallahu khairan.`;
 
-    // Buka WhatsApp di tab baru
     window.open(`https://wa.me/${nomorWASafar}?text=${teksWA}`, '_blank');
 
-    // Tampilkan banner sukses yang sudah ada di HTML
     const banner = document.getElementById('form-success-banner');
     if (banner) {
       banner.classList.remove('hidden');
